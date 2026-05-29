@@ -1,12 +1,21 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { fadeUp, scaleIn, viewport } from '../motion.js'
 
 export default function TeamBanner() {
+  const cardRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ['start end', 'end start'],
+  })
+  const imageY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%'])
+
   return (
     <section className="team-banner">
       <div className="container">
         <motion.div
           className="team-banner-card"
+          ref={cardRef}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
@@ -15,6 +24,7 @@ export default function TeamBanner() {
           <motion.img
             src="/rwandasmosttrust.png"
             alt="Rwanda's most trusted staffing team"
+            style={{ y: imageY }}
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.5 }}
           />

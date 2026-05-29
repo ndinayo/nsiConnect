@@ -1,16 +1,26 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { fadeUp, stagger } from '../motion.js'
 
 export default function Hero() {
+  const stageRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: stageRef,
+    offset: ['start start', 'end start'],
+  })
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05])
+
   return (
     <section className="hero">
-      <div className="hero-stage">
+      <div className="hero-stage" ref={stageRef}>
         <motion.img
           className="hero-image"
           src="/hero_image.png"
           alt="Trusted professionals including chefs, housekeepers, nannies, and security staff"
-          initial={{ scale: 1.06 }}
-          animate={{ scale: 1 }}
+          style={{ y: imageY, scale: imageScale }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         />
         <div className="hero-overlay">

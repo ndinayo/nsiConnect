@@ -21,6 +21,32 @@ export default function Header() {
     }
   }, [menuOpen])
 
+  useEffect(() => {
+    if (!menuOpen) {
+      return undefined
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeMenu()
+      }
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        closeMenu()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [menuOpen])
+
   return (
     <motion.header
       className="header"
@@ -33,18 +59,20 @@ export default function Header() {
           <img src="/logo.png" alt="nsiConneKt" className="logo-mark" />
         </a>
 
-        <button
-          type="button"
-          className="nav-toggle"
-          aria-expanded={menuOpen}
-          aria-controls="main-nav"
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          onClick={() => setMenuOpen((o) => !o)}
-        >
-          <span className={menuOpen ? 'nav-toggle-bar open' : 'nav-toggle-bar'} />
-          <span className={menuOpen ? 'nav-toggle-bar open' : 'nav-toggle-bar'} />
-          <span className={menuOpen ? 'nav-toggle-bar open' : 'nav-toggle-bar'} />
-        </button>
+        {!menuOpen && (
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-expanded={false}
+            aria-controls="main-nav"
+            aria-label="Open menu"
+            onClick={() => setMenuOpen(true)}
+          >
+            <span className="nav-toggle-bar" />
+            <span className="nav-toggle-bar" />
+            <span className="nav-toggle-bar" />
+          </button>
+        )}
 
         <AnimatePresence>
           {menuOpen && (
@@ -63,8 +91,20 @@ export default function Header() {
           id="main-nav"
           className={`nav${menuOpen ? ' nav-open' : ''}`}
           initial={false}
-          animate={menuOpen ? { opacity: 1, y: 0 } : {}}
+          animate={menuOpen ? { opacity: 1 } : {}}
         >
+          {menuOpen && (
+            <button
+              type="button"
+              className="nav-toggle nav-toggle-open nav-drawer-close"
+              aria-label="Close menu"
+              onClick={closeMenu}
+            >
+              <span className="nav-toggle-bar open" />
+              <span className="nav-toggle-bar open" />
+              <span className="nav-toggle-bar open" />
+            </button>
+          )}
           {links.map((link) => (
             <a key={link.href} href={link.href} onClick={closeMenu}>
               {link.label}
