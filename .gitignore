@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
+
+# Dev-only Figma reference exports
+public/figma-ref.*
+public/figma-reference.png
+figma export/
+/hero_image.png
+/rwandasmosttrust.png
+/logo for web.png
+
+# Vercel
+.vercel
