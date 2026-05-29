@@ -12,6 +12,9 @@
   --nav: #1a1a1a;
   --shadow-card: 0 4px 24px rgba(86, 112, 164, 0.1);
   --shadow-btn: 0 4px 14px rgba(86, 112, 164, 0.35);
+  --cta-bg: #586fa1;
+  --cta-shadow: 0 10px 30px rgba(88, 111, 161, 0.28);
+  --card-radius: 12px;
 }
 
 *,
@@ -76,9 +79,9 @@ p {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 64px;
 }
 
 .section-label {
@@ -102,10 +105,11 @@ p {
 }
 
 .section-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(40px, 3.8vw, 52px);
-  font-weight: 500;
-  line-height: 1.1;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: normal;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: -1.2px;
   color: var(--brand);
 }
