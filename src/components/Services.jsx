@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion'
+import { fadeUp, stagger, viewport } from '../motion.js'
+
 const services = [
   {
     title: 'Chefs',
@@ -43,19 +46,42 @@ export default function Services() {
   return (
     <section className="services" id="services">
       <div className="container">
-        <span className="section-label">What We Provide</span>
-        <h2 className="section-title">Our Services</h2>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          variants={stagger(0.1)}
+        >
+          <motion.span className="section-label" variants={fadeUp}>
+            What We Provide
+          </motion.span>
+          <motion.h2 className="section-title" variants={fadeUp}>
+            Our Services
+          </motion.h2>
+        </motion.div>
 
-        <div className="services-grid">
+        <motion.div
+          className="services-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          variants={stagger(0.1)}
+        >
           {services.map((s) => (
-            <div key={s.title} className="service-card">
+            <motion.div
+              key={s.title}
+              className="service-card"
+              variants={fadeUp}
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.25 }}
+            >
               <span className="service-icon">{s.icon}</span>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
               <span className="service-tag">Available Now</span>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

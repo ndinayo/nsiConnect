@@ -81,7 +81,7 @@ p {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 64px;
+  padding: 0 clamp(16px, 4vw, 64px);
 }
 
 .section-label {
@@ -107,9 +107,23 @@ p {
 .section-title {
   font-family: 'DM Serif Display', Georgia, serif;
   font-style: normal;
-  font-size: 48px;
+  font-size: clamp(32px, 6vw, 48px);
   font-weight: 400;
-  line-height: 48px;
+  line-height: 1.1;
   letter-spacing: -1.2px;
   color: var(--brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

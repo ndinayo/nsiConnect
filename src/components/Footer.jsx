@@ -1,9 +1,19 @@
+import { motion } from 'framer-motion'
+import { fadeUp, stagger, viewport } from '../motion.js'
+
 export default function Footer() {
   return (
-    <footer className="footer" id="join">
+    <motion.footer
+      className="footer"
+      id="join"
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewport}
+      variants={stagger(0.08)}
+    >
       <div className="container">
         <div className="footer-grid">
-          <div className="footer-brand-column">
+          <motion.div className="footer-brand-column" variants={fadeUp}>
             <div className="footer-logo">
               <span className="footer-logo-serif">nsi</span>
               <span className="footer-logo-sans">ConneKt</span>
@@ -35,9 +45,9 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="footer-column">
+          <motion.div className="footer-column" variants={fadeUp}>
             <h4>Services</h4>
             <ul className="footer-list footer-list-muted">
               <li><a href="#">Chef</a></li>
@@ -45,9 +55,9 @@ export default function Footer() {
               <li><a href="#">Nanny</a></li>
               <li><a href="#">Security Guard</a></li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="footer-column">
+          <motion.div className="footer-column" variants={fadeUp}>
             <h4>Company</h4>
             <ul className="footer-list footer-list-strong">
               <li><a href="#">About Us</a></li>
@@ -55,9 +65,9 @@ export default function Footer() {
               <li><a href="#">Join Our Network</a></li>
               <li><a href="#">Contact Us</a></li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="footer-column">
+          <motion.div className="footer-column" variants={fadeUp}>
             <h4>Contact</h4>
             <div className="footer-contact">
               <div className="footer-contact-row">
@@ -96,18 +106,18 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="footer-bottom">
+        <motion.div className="footer-bottom" variants={fadeUp}>
           <div className="footer-copyright">&copy; 2026 nsiConneKt. All Rights Reserved.</div>
           <div className="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <span className="footer-bottom-separator" aria-hidden="true">&bull;</span>
             <a href="#">Terms of Service</a>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }

@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion'
+import { fadeUp, stagger, viewport } from '../motion.js'
+
 const testimonials = [
   {
     quote: 'We needed a full-time housekeeper on short notice. nsiConneKt placed someone who exceeded all our expectations within 48 hours. Truly professional service.',
@@ -38,12 +41,35 @@ export default function Testimonials() {
   return (
     <section className="testimonials" id="testimonials">
       <div className="container">
-        <span className="section-label">Client Stories</span>
-        <h2 className="section-title">What Our Clients Say</h2>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          variants={stagger(0.1)}
+        >
+          <motion.span className="section-label" variants={fadeUp}>
+            Client Stories
+          </motion.span>
+          <motion.h2 className="section-title" variants={fadeUp}>
+            What Our Clients Say
+          </motion.h2>
+        </motion.div>
 
-        <div className="testimonials-grid">
+        <motion.div
+          className="testimonials-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          variants={stagger(0.12)}
+        >
           {testimonials.map((t) => (
-            <article key={t.name} className="testimonial-card">
+            <motion.article
+              key={t.name}
+              className="testimonial-card"
+              variants={fadeUp}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.25 }}
+            >
               <Stars />
               <p className="testimonial-quote">{t.quote}</p>
               <div className="testimonial-author">
@@ -53,9 +79,9 @@ export default function Testimonials() {
                   <div className="testimonial-role">{t.role}</div>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
