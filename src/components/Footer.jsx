@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="footer" id="join">
       <div className="container">
         <div className="footer-grid">
-          <div>
+          <div className="footer-brand-column">
             <div className="footer-logo">
               <span className="footer-logo-serif">nsi</span>
               <span className="footer-logo-sans">ConneKt</span>
@@ -37,9 +37,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="footer-column">
             <h4>Services</h4>
-            <ul className="footer-list">
+            <ul className="footer-list footer-list-muted">
               <li><a href="#">Chef</a></li>
               <li><a href="#">Housekeeper</a></li>
               <li><a href="#">Nanny</a></li>
@@ -47,9 +47,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="footer-column">
             <h4>Company</h4>
-            <ul className="footer-list">
+            <ul className="footer-list footer-list-strong">
               <li><a href="#">About Us</a></li>
               <li><a href="#">Hire Professionals</a></li>
               <li><a href="#">Join Our Network</a></li>
@@ -57,7 +57,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="footer-column">
             <h4>Contact</h4>
             <div className="footer-contact">
               <div className="footer-contact-row">
@@ -66,9 +66,9 @@ export default function Footer() {
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </span>
-                <div>
+                <div className="footer-contact-copy">
                   <div className="footer-contact-label">Phone</div>
-                  <div>0788 800 788</div>
+                  <div className="footer-contact-value">0788 800 766</div>
                 </div>
               </div>
               <div className="footer-contact-row">
@@ -78,9 +78,9 @@ export default function Footer() {
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
                 </span>
-                <div>
+                <div className="footer-contact-copy">
                   <div className="footer-contact-label">Email</div>
-                  <div>nsiconnekt.com</div>
+                  <div className="footer-contact-value">nsiconnekt.com</div>
                 </div>
               </div>
               <div className="footer-contact-row">
@@ -90,21 +90,20 @@ export default function Footer() {
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                 </span>
-                <div>
+                <div className="footer-contact-copy">
                   <div className="footer-contact-label">Location</div>
-                  <div>Kigali, Rwanda</div>
+                  <div className="footer-contact-value">Kigali, Rwanda</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="footer-divider" />
         <div className="footer-bottom">
-          <div>&copy; 2026 nsiConneKt. All Rights Reserved.</div>
+          <div className="footer-copyright">&copy; 2026 nsiConneKt. All Rights Reserved.</div>
           <div className="footer-bottom-links">
             <a href="#">Privacy Policy</a>
-            <span>&middot;</span>
+            <span className="footer-bottom-separator" aria-hidden="true">&bull;</span>
             <a href="#">Terms of Service</a>
           </div>
         </div>

@@ -3,20 +3,15 @@ export default function StatsBar() {
     <section className="stats-bar">
       <div className="container stats-bar-grid">
         <div className="stats-bar-item">
-          <div className="stats-bar-num">500<span>+</span></div>
+          <div className="stats-bar-num">500<span className="stats-bar-plus">+</span></div>
           <div className="stats-bar-label">Vetted Professionals</div>
         </div>
         <div className="stats-bar-item">
-          <div className="stats-bar-num">300<span>+</span></div>
+          <div className="stats-bar-num">300<span className="stats-bar-plus">+</span></div>
           <div className="stats-bar-label">Happy Families Served</div>
         </div>
         <div className="stats-bar-item">
-          <div className="stats-bar-num">
-            4.9
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFC107" aria-hidden="true">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
-          </div>
+          <div className="stats-bar-num">4.9<span className="stats-bar-suffix">/5</span></div>
           <div className="stats-bar-label">Average Rating</div>
         </div>
       </div>
